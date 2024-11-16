@@ -6,6 +6,7 @@ To develop a Django application to store and retrieve data from a bank loan data
 
 ## ENTITY RELATIONSHIP DIAGRAM
 
+![WhatsApp Image 2024-11-16 at 14 03 11_9656e55a](https://github.com/user-attachments/assets/ca64b0dc-78be-4b14-8f42-02cba41e9920)
 
 
 ## DESIGN STEPS
@@ -24,11 +25,32 @@ Execute Django admin and create details for 10 books
 
 ## PROGRAM
 
+```
 
+admin.py
+
+from django.contrib import admin
+from .models import Bank_loan,Bank_loanAdmin
+admin.site.register(Bank_loan,Bank_loanAdmin)
+
+models.py
+from django.db import models
+from django.contrib import admin
+class Bank_loan (models.Model):
+    customer_id=models.IntegerField(primary_key=True)
+    customer_name=models.CharField(max_length=100)
+    loan_amount=models.IntegerField()
+    customer_age=models.IntegerField()
+    email=models.EmailField()
+
+class Bank_loanAdmin(admin.ModelAdmin):
+    list_display=('customer_id','customer_name','loan_amount','customer_age','email')
+```
 
 ## OUTPUT
 
-Include the screenshot of your admin page.
+![Screenshot (110)](https://github.com/user-attachments/assets/7273b208-d8ad-4367-9de6-39bd8c6a1792)
+
 
 
 ## RESULT
